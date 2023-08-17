@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+
+  - job_name: 'Stock-service'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['techefx-product-stock:8800']
+   
+  - job_name: 'Enquiry-service'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['techefx-product-enquiry:8700']
+    
+  - job_name: 'Naming-service'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['techefx-eureka-naming:8761']
+    
+  - job_name: 'API-Gateway-service'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['techefx-spring-cloud-api-gateway:8900']
