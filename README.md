@@ -7,6 +7,7 @@ This repository contains a set of Spring Boot microservices dockerized for easy 
 - [Microservices](#microservices)
 - [Dockerization](#dockerization)
 - [Shell Script](#shell-script)
+- [Docker Compose Configuration](#docker-compose-configuration)
 - [Docker Compose Variants](#docker-compose-variants)
 - [Project Structure](#project-structure)
 - [Service URLs](#service-urls)
@@ -43,6 +44,29 @@ The `build_and_deploy.sh` shell script automates the build and deployment proces
 Optimizations and Best Practices in Shell Script:
 - Automatic creation of `.dockerignore` files to exclude build artifacts.
 - Capturing build output and logging failures for troubleshooting.
+
+## Docker Compose Configuration
+
+This Docker Compose configuration sets up a collection of services for a microservices architecture using Spring Cloud and Prometheus monitoring.
+
+### Services
+
+- **techefx-eureka-naming**: Eureka Naming Server for service discovery. Exposed on port 8761.
+- **techefx-product-stock**: Product Stock Service. Exposed on port 8800. Depends on Eureka Naming Server.
+- **techefx-product-enquiry**: Product Enquiry Service. Exposed on port 8700. Depends on Product Stock Service.
+- **techefx-spring-cloud-api-gateway**: Spring Cloud API Gateway. Exposed on port 8900. Depends on Eureka Naming Server, Product Enquiry Service, and Product Stock Service.
+- **prometheus**: Prometheus monitoring system. Exposed on port 9090. Depends on Product Stock Service.
+- **grafana**: Grafana dashboard for visualization. Exposed on port 3000. Depends on Prometheus.
+- **zipkin**: Distributed tracing system. Exposed on port 9411. Depends on Eureka Naming Server.
+
+### Volumes
+
+- `prometheus_data`: Volume for Prometheus data storage.
+
+### Networks
+
+- `test-network`: Custom network for communication between services.
+
 
 ## Docker Compose Variants
 Two variants of `docker-compose.yml` are provided for orchestrating microservices:
