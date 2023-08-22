@@ -113,3 +113,9 @@ docker-compose down
 
 ## Summary
 This project demonstrates an optimized approach to dockerizing Spring Boot microservices and automating their deployment. By utilizing Docker containers and orchestration tools, it aims to enhance the development and operational aspects of microservices architecture. The provided Dockerfiles, shell script, and docker-compose variants showcase best practices for creating efficient, scalable, and maintainable microservice deployments.
+
+### Grafana Dashboard with data from Prometheus 
+![Grafana_UI_data-custom_dashboard_after_dockerization](https://github.com/arunabhsepaha/dockerization_of_sb_microservices_prometheus_grafana/assets/131629469/49a68cc4-fb94-4579-b2cf-cf8087eccd6a)
+
+### Prometheus Data in UI 
+![Prometheus_UI_data_after_dockerization](https://github.com/arunabhsepaha/dockerization_of_sb_microservices_prometheus_grafana/assets/131629469/757b99aa-15bc-4193-8e97-a7754f37d27b)
